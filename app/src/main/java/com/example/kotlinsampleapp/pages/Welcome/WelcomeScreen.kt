@@ -1,5 +1,6 @@
 package com.example.kotlinsampleapp.pages.Welcome
 
+import android.content.Context
 import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,6 +12,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalContext
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -21,8 +23,10 @@ import androidx.compose.ui.unit.dp
 import com.example.kotlinsampleapp.util.supportWideScreen
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.descope.Descope
+import com.descope.session.DescopeSession
 import com.descope.types.DeliveryMethod
 import com.example.kotlinsampleapp.pages.Email
 import com.example.kotlinsampleapp.pages.EmailState
@@ -46,7 +50,27 @@ fun WelcomeScreen(
                 onSignedIn = onSignedIn,
                 onOTPSent = onOTPSent
             )
+            StartFlow(
+                context = LocalContext.current
+            )
         }
+    }
+}
+
+@Composable
+fun StartFlow(context: Context) {
+    Button(onClick = {
+        Log.i("INFO", "Starting flow")
+        try {
+            Descope.flow.create(
+                flowUrl = "<your_flow_url>",
+                deepLinkUrl = "<your_deep_link_url>",
+            ).start(context)
+        } catch (e: Exception) {
+            Log.e("ERROR", e.stackTraceToString())
+        }
+    }) {
+        Text(text = "Start flow")
     }
 }
 

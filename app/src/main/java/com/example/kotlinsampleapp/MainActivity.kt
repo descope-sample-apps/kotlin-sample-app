@@ -16,7 +16,7 @@ import com.example.kotlinsampleapp.ui.theme.KotlinSampleAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Descope.projectId=""
+        Descope.projectId="<your_project_id>"
         setContent {
             SampleAppNavHost()
         }

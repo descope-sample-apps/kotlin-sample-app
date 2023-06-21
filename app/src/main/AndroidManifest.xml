@@ -23,6 +23,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".FlowDoneActivity"
+            android:exported="true">  <!-- exported required for app links -->
+            <intent-filter android:autoVerify="true"> <!-- autoVerify required for app links -->
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- replace with your host, the path can change must must be reflected when running the flow -->
+                <data android:scheme="https" android:host="<your_host_url>" android:path="/done" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
