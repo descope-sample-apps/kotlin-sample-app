@@ -1,7 +1,6 @@
 package com.example.kotlinsampleapp.pages.Verify
 
 import androidx.compose.runtime.Composable
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.kotlinsampleapp.pages.Welcome.VerifyScreen
 
 @Composable

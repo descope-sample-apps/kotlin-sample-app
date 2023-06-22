@@ -2,7 +2,6 @@ package com.example.kotlinsampleapp
 
 import android.app.Application
 import com.descope.Descope
-
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()

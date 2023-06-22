@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -19,7 +18,6 @@ import com.descope.Descope
 import com.descope.session.refreshJwt
 import com.descope.types.DescopeUser
 import com.example.kotlinsampleapp.pages.SignInSignUpTopAppBar
-import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class) // Scaffold is experimental in m3
 @Composable

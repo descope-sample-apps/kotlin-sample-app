@@ -1,6 +1,5 @@
 package com.example.kotlinsampleapp.pages
 
-
 import java.util.regex.Pattern
 
 // Consider an otp valid if there's 6 digits and only numbers

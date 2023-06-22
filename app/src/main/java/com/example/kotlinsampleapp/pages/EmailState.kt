@@ -1,6 +1,5 @@
 package com.example.kotlinsampleapp.pages
 
-
 import java.util.regex.Pattern
 
 // Consider an email valid if there's some text before and after a "@"
