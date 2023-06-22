@@ -9,7 +9,7 @@ This sample app allows you to get familiar with the Descope Kotlin SDK. It has a
 ###  Run the app
 1. Clone this repo
 2. Open the project within Android Studio, or your IDE of choice
-3. Within the project settings of the project, change the `<your_project_id>` (MyApplication.kt) to your own
-    a. Optionally, if you are using a custom CNAME, you can also add your baseURL
-    b. Optionally, if you'd like to run Descope Flows, you'll need to add `<your_flow_url>` (WelcomeScreen.kt), `<your_deep_link_url>` (WelcomeScreen.kt), and `<your_flow_url_host>` (AndroidManifest.xml.kt)
+3. Within the project settings of the project, change the `<your_project_id>` (MyApplication.kt) to your own 
+    - Optionally, if you are using a custom CNAME, you can also add your baseURL
+    - Optionally, if you'd like to run Descope Flows, you'll need to add `<your_flow_url>` (WelcomeScreen.kt), `<your_deep_link_url>` (WelcomeScreen.kt), and `<your_flow_url_host>` (AndroidManifest.xml.kt)
 4. Run the simulator within Android Studio - The play button located in the top
