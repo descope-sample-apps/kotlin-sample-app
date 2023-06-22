@@ -3,6 +3,7 @@ package com.example.kotlinsampleapp
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.descope.Descope
 import com.descope.session.DescopeSession
@@ -23,6 +24,8 @@ class FlowDoneActivity : AppCompatActivity() {
                 val authResponse = Descope.flow.currentRunner?.exchange(incomingUri) ?: throw Exception("Flow is not running")
                 val session = DescopeSession(authResponse)
                 Descope.sessionManager.manageSession(session)
+                Log.i("INFO", session.toString())
+                Log.i("INFO", session.user.toString())
 
                 // Show the post-authentication screen, for example
                 startActivity(Intent(this@FlowDoneActivity, MainActivity::class.java).apply {

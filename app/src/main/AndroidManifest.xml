@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -25,14 +26,17 @@
         </activity>
         <activity
             android:name=".FlowDoneActivity"
-            android:exported="true">  <!-- exported required for app links -->
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"
+            >  <!-- exported required for app links -->
             <intent-filter android:autoVerify="true"> <!-- autoVerify required for app links -->
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <!-- replace with your host, the path can change must must be reflected when running the flow -->
-                <data android:scheme="https" android:host="<your_host_url>" android:path="/done" />
+                <data android:scheme="https" android:host="<your_flow_url_host>" android:path="/done" />
             </intent-filter>
         </activity>
     </application>

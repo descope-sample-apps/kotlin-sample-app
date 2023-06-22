@@ -7,7 +7,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 fun LoggedInRoute(
     onNavUp: () -> Unit,
 ) {
-//    val loggedInViewModel: LoggedInViewModel = viewModel(factory = LoggedInViewModelFactory())
     LoggedInScreen(
         onNavUp = onNavUp,
     )

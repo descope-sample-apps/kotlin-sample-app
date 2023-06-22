@@ -36,7 +36,6 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun WelcomeScreen(
-    onSignedIn: (email: String) -> Unit,
     onOTPSent: (email: String) -> Unit
 ) {
     Surface(modifier = Modifier.supportWideScreen()) {
@@ -47,7 +46,6 @@ fun WelcomeScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             SignUpOrIn(
-                onSignedIn = onSignedIn,
                 onOTPSent = onOTPSent
             )
             StartFlow(
@@ -58,25 +56,39 @@ fun WelcomeScreen(
 }
 
 @Composable
-fun StartFlow(context: Context) {
-    Button(onClick = {
-        Log.i("INFO", "Starting flow")
-        try {
-            Descope.flow.create(
-                flowUrl = "<your_flow_url>",
-                deepLinkUrl = "<your_deep_link_url>",
-            ).start(context)
-        } catch (e: Exception) {
-            Log.e("ERROR", e.stackTraceToString())
+fun StartFlow(context: Context,
+              modifier: Modifier = Modifier
+) {
+    Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(
+            text = "or, sign up/in with a flow",
+            style = MaterialTheme.typography.bodyMedium,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(top = 64.dp, bottom = 12.dp)
+        )
+        Button(
+
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 28.dp, bottom = 1.dp),
+            onClick = {
+                try {
+                    Descope.flow.create(
+                        flowUrl = "<your_flow_url>",
+                        deepLinkUrl = "<your_deep_link_url>",
+                    ).start(context)
+                } catch (e: Exception) {
+                    Log.e("ERROR", e.stackTraceToString())
+                }
+            },
+            ) {
+            Text(text = "Start flow")
         }
-    }) {
-        Text(text = "Start flow")
     }
 }
 
 @Composable
 private fun SignUpOrIn(
-    onSignedIn: (email: String) -> Unit,
     onOTPSent: (email: String) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -92,6 +104,7 @@ private fun SignUpOrIn(
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(top = 64.dp, bottom = 12.dp)
         )
+
         val onSubmit: () -> Unit = {
             if (emailState.isValid) {
                 try {
@@ -127,7 +140,6 @@ private fun SignUpOrIn(
 @Composable
 fun WelcomeScreenPreview() {
         WelcomeScreen(
-            onSignedIn = {},
             onOTPSent = {}
         )
 }
