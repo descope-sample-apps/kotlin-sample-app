@@ -107,7 +107,7 @@ private fun SignUpOrIn(
             if (emailState.isValid) {
                 try {
                     coroutineScope.launch {
-                        Descope.otp.signUpOrIn(method = DeliveryMethod.Email, loginId = "allen.zhou101@gmail.com")
+                        Descope.otp.signUpOrIn(DeliveryMethod.Email, emailState.text)
                     }
 //                    onSignedIn(emailState.text)
                     onOTPSent(emailState.text)
