@@ -13,4 +13,9 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "KotlinSampleApp"
-include ':app'
+include ':app', ':descope'
+project(':descope').projectDir = new File('../../descope-kotlin')
+
+
+
+
